@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart_app/providers/cart.dart';
+import 'package:shopping_cart_app/providers/order_item.dart';
 import 'package:shopping_cart_app/providers/product.dart';
+import 'package:shopping_cart_app/screens/cart_screen.dart';
+import 'package:shopping_cart_app/screens/edit_product_screen.dart';
+import 'package:shopping_cart_app/screens/orders_screen.dart';
 import 'package:shopping_cart_app/screens/product_detail.dart';
 import 'package:shopping_cart_app/screens/product_overview_screen.dart';
+import 'package:shopping_cart_app/screens/user_products_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +25,13 @@ class MyApp extends StatelessWidget {
     }),
     ChangeNotifierProvider(create: (context){
           return Cart();
-        })],
+        }),
+    ChangeNotifierProvider(
+      create: (context){
+        return Orders();
+      },
+    )
+    ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -41,6 +52,18 @@ class MyApp extends StatelessWidget {
       routes: {
         ProductDetail.routeNaMe : (context){
           return ProductDetail();
+        },
+        CartScreen.ROUTE : (context){
+          return CartScreen();
+        },
+        OrdersScreen.ROUTENAME : (context){
+          return OrdersScreen();
+        },
+        UserProductsScreen.RouteName : (context){
+          return UserProductsScreen();
+        },
+        EditProductScreen.ROUTENAME : (context){
+          return EditProductScreen();
         }
       },
     )

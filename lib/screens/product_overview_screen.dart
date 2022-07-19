@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart_app/providers/cart.dart';
-import 'package:shopping_cart_app/widgets/ProductIteM.dart';
-import '../model/product.dart';
-import '../providers/product.dart';
+import 'package:shopping_cart_app/screens/cart_screen.dart';
+import 'package:shopping_cart_app/widgets/app_drawer.dart';
 import '../screens/ProductsGrid.dart';
 import '../widgets/badge.dart';
 
@@ -56,13 +55,14 @@ class ProductsOverviewState extends State<ProductOverview>{
             child: IconButton(
                 icon: Icon(Icons.shopping_cart),
                 onPressed: () {
-
+                  Navigator.of(context).pushNamed(CartScreen.ROUTE);
                 }
             )
           )
         ],
       ),
       body: ProductsGrid(_showFavouriate),
+      drawer: AppDrawer(),
     );
 
   }

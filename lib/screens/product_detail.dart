@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart_app/providers/product.dart';
@@ -17,6 +18,26 @@ class ProductDetail extends StatelessWidget{
       appBar: AppBar(
         title: Text(product.title),
       ),
+      body: Column(
+     children: <Widget>[Container(
+        height: 300,
+        width: double.infinity,
+        child: Image.network(product.iMageUrl,
+        fit: BoxFit.cover,
+        ),
+     ),
+       SizedBox(height: 10,),
+       Text("\$${product.price}", style: TextStyle(
+         color: Colors.grey,
+         fontSize: 20
+       ),),
+       SizedBox(height: 10,),
+       Text(
+         product.description,
+         textAlign: TextAlign.center,
+         softWrap: true,
+       )
+    ])
     );
   }
 }
